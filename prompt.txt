@@ -1,0 +1,576 @@
+Crie uma plataforma SaaS completa chamada Mentor Literário BestSeller.
+
+Não quero um MVP enxuto. Quero uma versão completa e navegável da plataforma, com todos os módulos essenciais para autores independentes escreverem, estruturarem, revisarem, publicarem e divulgarem seus livros.
+
+Nesta primeira etapa, use dados simulados e funcionamento local, sem banco de dados real, sem pagamento real e sem IA real. Porém, a arquitetura deve estar preparada para receber Supabase, autenticação, pagamento e integração com IA posteriormente.
+
+A plataforma deve unir duas funções principais:
+
+1. Mentor conversacional com IA, chamado Mentor BestSeller.
+2. Plataforma guiada por etapas, com módulos, checklists, formulários, entregáveis, progresso salvo e próximo passo recomendado.
+
+O usuário deve sentir que está sendo conduzido por uma jornada completa:
+
+Ideia → Estrutura → Personagens → Capítulos → Escrita → Revisão → Sinopse → Publicação → Lançamento → Vendas.
+
+O SaaS será voltado para escritores iniciantes e autores independentes que desejam escrever, publicar e vender livros de ficção, principalmente romances comerciais, na Amazon KDP.
+
+A promessa segura do produto é ajudar autores a construírem livros mais fortes, profissionais e com maior potencial de venda, sem prometer bestseller garantido, vendas garantidas ou ranking garantido.
+
+Use a seguinte stack:
+
+- Next.js
+- TypeScript
+- Tailwind CSS
+- App Router
+- Componentes reutilizáveis
+- Estrutura preparada para Supabase futuramente
+- Estrutura preparada para IA futuramente
+- Estrutura preparada para pagamentos futuramente
+
+A identidade visual deve ser elegante, literária, sofisticada e profissional.
+
+Use uma paleta com:
+
+- creme
+- vinho
+- dourado suave
+- marrom café
+- preto elegante
+- bege claro
+
+A interface deve parecer uma mistura de escritório editorial premium, ferramenta de produtividade e mentoria literária estratégica.
+
+Evite aparência infantil, colorida demais ou genérica de IA.
+
+Crie uma área pública e uma área logada simulada.
+
+A área pública deve conter:
+
+1. Página inicial
+2. Login
+3. Cadastro
+4. Página de planos
+
+A área logada deve conter:
+
+1. Dashboard
+2. Diagnóstico Literário
+3. Meu Livro
+4. Jornada Guiada
+5. Mentor BestSeller
+6. Autoria
+7. Amazon
+8. Autonomia
+9. Biblioteca BestSeller
+10. Configurações
+
+A página inicial deve ter:
+
+Headline:
+"Transforme sua ideia em um livro publicado, estratégico e pronto para encontrar leitores."
+
+Subheadline:
+"O Mentor Literário BestSeller guia escritores iniciantes e autores independentes da ideia à publicação, unindo escrita criativa, Amazon KDP e marketing literário em uma jornada clara e personalizada."
+
+Seções:
+- Hero principal
+- Dores do público
+- Apresentação da solução
+- Como funciona
+- Três pilares: Autoria, Amazon e Autonomia
+- Entregáveis que o autor pode gerar
+- Funcionalidades principais
+- Para quem é
+- Planos
+- CTA final
+
+A página deve deixar claro que o produto não é apenas um chat, mas uma plataforma guiada para construir o livro e a estratégia de publicação.
+
+Crie uma navegação lateral na área logada.
+
+O menu lateral deve ser organizado assim:
+
+Principal:
+- Dashboard
+- Diagnóstico Literário
+- Meu Livro
+- Jornada Guiada
+- Mentor BestSeller
+
+Autoria:
+- Gerador de Ideias Vendáveis
+- Mapa do Livro
+- Personagens Cativantes
+- Construtor de Capítulos
+- Cena Magnética
+- Diálogos com Subtexto
+- Ganchos de Capítulo
+- Revisor de Manuscrito
+
+Amazon:
+- Sinopse que Vende
+- Título e Subtítulo Estratégico
+- Capa e Posicionamento Visual
+- Categorias e Palavras-chave
+- Checklist KDP
+- Página do Livro
+
+Autonomia:
+- Plano de Lançamento
+- Calendário de Conteúdo
+- Divulgação Sem Aparecer
+- Copies para Redes Sociais
+- Roteiros de Reels
+- Anúncios para Livros
+- Prova Social
+
+Recursos:
+- Biblioteca BestSeller
+- Planos
+- Configurações
+
+Crie um Dashboard completo com:
+
+- saudação personalizada
+- fase atual do livro
+- progresso percentual
+- trilha recomendada
+- próximo passo recomendado
+- cards com os pilares Autoria, Amazon e Autonomia
+- tarefas pendentes
+- entregáveis já criados
+- acesso rápido ao Mentor BestSeller
+- botão "Continuar minha jornada"
+
+Crie a página Diagnóstico Literário com formulário guiado perguntando:
+
+- Qual é o seu nome?
+- Você já escreve ou quer começar do zero?
+- Qual gênero literário você escreve ou deseja escrever?
+- Em que fase está seu livro hoje?
+- Qual é sua maior dificuldade agora?
+- Você já publicou algum livro antes?
+- Você pretende publicar na Amazon KDP?
+- Você quer vender mais livros, gerar páginas lidas ou apenas concluir seu primeiro manuscrito?
+- Você quer aparecer nas redes sociais ou prefere divulgar sem aparecer?
+- Qual prazo você gostaria de ter para publicar?
+
+Depois do diagnóstico, mostre um resultado simulado com:
+
+- fase atual do autor
+- principal bloqueio
+- pilar prioritário
+- trilha recomendada
+- primeiras tarefas
+- próximo módulo indicado
+
+Crie a página Meu Livro com formulário completo para cadastrar:
+
+- título provisório
+- gênero literário
+- subgênero
+- tropes
+- público-alvo
+- premissa
+- promessa emocional
+- protagonista
+- par romântico ou personagem central
+- antagonista ou obstáculo principal
+- conflito interno
+- conflito externo
+- tom do livro
+- status do manuscrito
+- meta de palavras
+- meta de publicação
+
+Essa área deve funcionar como o caderno central do projeto literário.
+
+Crie a página Jornada Guiada mostrando a linha completa:
+
+1. Ideia
+2. Estrutura
+3. Personagens
+4. Capítulos
+5. Escrita
+6. Revisão
+7. Sinopse
+8. Publicação
+9. Lançamento
+10. Vendas
+
+Cada etapa deve ter:
+- explicação
+- status
+- tarefa principal
+- botão para acessar o módulo correspondente
+
+Crie a página Mentor BestSeller com interface de chat profissional.
+
+O chat deve ter mensagens simuladas, mas deve parecer pronto para conectar com IA real.
+
+O Mentor BestSeller deve se apresentar como um agente literário estratégico que conhece o diagnóstico, o livro e a fase atual do autor.
+
+Crie a área Autoria com os seguintes módulos:
+
+1. Gerador de Ideias Vendáveis
+
+Função: transformar ideia vaga em premissa forte.
+
+Campos:
+- ideia inicial
+- gênero
+- protagonista
+- conflito
+- trope
+- tom
+
+Resultado simulado:
+- diagnóstico da ideia
+- pontos fortes
+- pontos fracos
+- premissa melhorada
+- promessa emocional
+- próximo passo
+
+2. Mapa do Livro
+
+Função: criar estrutura narrativa.
+
+Campos:
+- premissa
+- gênero
+- protagonista
+- conflito principal
+- final desejado
+- quantidade de capítulos
+
+Resultado simulado:
+- começo
+- virada inicial
+- ponto médio
+- crise
+- clímax
+- desfecho
+- arco da protagonista
+
+3. Personagens Cativantes
+
+Função: criar personagens profundos.
+
+Campos:
+- nome
+- idade
+- papel
+- desejo
+- medo
+- ferida emocional
+- segredo
+- contradição
+
+Resultado simulado:
+- ficha completa
+- arco de transformação
+- função narrativa
+
+4. Construtor de Capítulos
+
+Função: criar escaleta capítulo por capítulo.
+
+Campos:
+- quantidade de capítulos
+- premissa
+- principais viradas
+- final desejado
+
+Resultado simulado:
+- lista de capítulos com função narrativa de cada um
+
+5. Cena Magnética
+
+Função: analisar e melhorar uma cena.
+
+Campos:
+- texto da cena
+- objetivo da cena
+- emoção desejada
+- gênero
+
+Resultado simulado:
+- diagnóstico
+- pontos fortes
+- pontos fracos
+- sugestões
+- versão revisada de exemplo
+
+6. Diálogos com Subtexto
+
+Função: melhorar diálogos.
+
+Campos:
+- diálogo atual
+- personagens envolvidos
+- tensão da cena
+- intenção oculta
+
+Resultado simulado:
+- análise do subtexto
+- diálogo melhorado
+
+7. Ganchos de Capítulo
+
+Função: criar finais que fazem o leitor continuar.
+
+Campos:
+- resumo do capítulo
+- emoção final
+- revelação ou tensão
+
+Resultado simulado:
+- cinco opções de gancho
+
+8. Revisor de Manuscrito
+
+Função: revisar trechos com foco em clareza, ritmo, emoção e coerência.
+
+Campos:
+- trecho do manuscrito
+- objetivo da revisão
+- tom desejado
+
+Resultado simulado:
+- análise
+- versão revisada de exemplo
+
+Crie a área Amazon com os seguintes módulos:
+
+1. Sinopse que Vende
+
+Função: criar sinopse para Amazon.
+
+Campos:
+- título
+- gênero
+- protagonista
+- conflito
+- par romântico ou personagem central
+- promessa emocional
+- tom
+
+Resultado simulado:
+- sinopse
+- descrição comercial
+- frase curta de venda
+- tropes
+- CTA
+
+2. Título e Subtítulo Estratégico
+
+Função: sugerir títulos comerciais.
+
+Campos:
+- gênero
+- premissa
+- tom
+- tropes
+- palavras-chave emocionais
+
+Resultado simulado:
+- sugestões de títulos
+- subtítulos
+- justificativa
+
+3. Capa e Posicionamento Visual
+
+Função: criar briefing de capa.
+
+Campos:
+- gênero
+- público
+- tom
+- elementos visuais
+- referências
+
+Resultado simulado:
+- briefing para capista
+- direção visual
+- alerta de posicionamento
+
+4. Categorias e Palavras-chave
+
+Função: organizar ideias de posicionamento na Amazon.
+
+Campos:
+- gênero
+- subgênero
+- tropes
+- público
+
+Resultado simulado:
+- lista de palavras-chave
+- categorias sugeridas de forma educativa
+
+5. Checklist KDP
+
+Função: orientar publicação.
+
+Resultado:
+- checklist com manuscrito
+- revisão
+- capa
+- sinopse
+- categorias
+- palavras-chave
+- preço
+- arquivo
+- publicação
+
+6. Página do Livro
+
+Função: montar elementos da página de venda.
+
+Campos:
+- título
+- sinopse
+- preço
+- prova social
+- público
+
+Resultado simulado:
+- estrutura da página
+- descrição
+- pontos de otimização
+
+Crie a área Autonomia com os seguintes módulos:
+
+1. Plano de Lançamento
+
+Função: organizar pré-lançamento, lançamento e pós-lançamento.
+
+Resultado simulado:
+- plano de 30 dias
+
+2. Calendário de Conteúdo
+
+Função: criar ideias de posts.
+
+Resultado simulado:
+- calendário semanal ou mensal
+
+3. Divulgação Sem Aparecer
+
+Função: criar estratégias para quem não quer gravar o rosto.
+
+Resultado simulado:
+- formatos de conteúdo
+- ideias de vídeos
+- ideias de posts
+
+4. Copies para Redes Sociais
+
+Função:
+- gerar legendas
+- chamadas
+- CTAs
+
+Resultado simulado:
+- copies prontas
+
+5. Roteiros de Reels
+
+Função: criar roteiros curtos.
+
+Resultado simulado:
+- gancho
+- desenvolvimento
+- CTA
+
+6. Anúncios para Livros
+
+Função: criar ideias de anúncios para livros.
+
+Resultado simulado:
+- ângulos de criativos
+- copies
+- públicos
+
+7. Prova Social
+
+Função: orientar uso de avaliações, páginas lidas, comentários e prints.
+
+Resultado simulado:
+- formas de usar prova social com ética e estratégia
+
+Crie a Biblioteca BestSeller com templates para:
+
+- ficha de personagem
+- mapa de romance
+- estrutura de capítulo
+- checklist de revisão
+- checklist de publicação KDP
+- modelo de sinopse
+- calendário de lançamento
+- roteiro de Reels
+- legenda para Instagram
+- copy de anúncio
+- briefing de capa
+- plano de 30 dias de divulgação
+
+Crie a página Planos com três opções:
+
+Plano Essencial:
+Para autores que querem organizar a ideia e estruturar o livro.
+
+Plano Autora Pro:
+Para autores que querem escrever, revisar e preparar o livro para publicação.
+
+Plano BestSeller:
+Para autores que querem a jornada completa, incluindo publicação, lançamento, vendas e Mentor BestSeller completo.
+
+Não prometa resultado garantido. Use linguagem profissional.
+
+Crie componentes reutilizáveis:
+
+- Button
+- Card
+- Input
+- Textarea
+- Select
+- Sidebar
+- Header
+- ProgressBar
+- ModuleCard
+- PlanCard
+- ChatBox
+- Checklist
+- TemplateCard
+- ResultBox
+- StepCard
+
+Todas as páginas devem ter conteúdo realista, textos explicativos e aparência de produto pronto para apresentação comercial.
+
+Não deixe telas vazias.
+
+Inclua botões como:
+
+- Gerar resultado
+- Salvar no Meu Livro
+- Copiar texto
+- Gerar nova versão
+- Enviar para o Mentor
+- Continuar minha jornada
+- Marcar como concluído
+
+Use dados mockados/local state por enquanto.
+
+Depois de criar a estrutura, rode o projeto localmente, corrija erros de TypeScript e garanta que npm run dev funcione.
+
+Crie também um README.md explicando:
+
+- objetivo do projeto
+- stack usada
+- como instalar
+- como rodar localmente
+- estrutura de páginas
+- funcionalidades simuladas
+- próximos passos para Supabase, IA e pagamentos

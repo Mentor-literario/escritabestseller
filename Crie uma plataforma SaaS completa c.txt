@@ -1,0 +1,12 @@
+Crie uma plataforma SaaS completa chamada Mentor Literário BestSeller.
+
+Não quero um MVP enxuto. Quero uma versão completa e navegável da plataforma, com todos os módulos essenciais para autores independentes escreverem, estruturarem, revisarem, publicarem e divulgarem seus livros.
+
+Nesta primeira etapa, use dados simulados e funcionamento local, sem banco de dados real, sem pagamento real e sem IA real. Porém, a arquitetura deve estar preparada para receber Supabase, autenticação, pagamento e integração com IA posteriormente.
+
+A plataforma deve unir duas funções principais:
+
+1. Mentor conversacional com IA, chamado Mentor BestSeller.
+2. Plataforma guiada por etapas, com módulos, checklists, formulários, entregáveis, progresso salvo e próximo passo recomendado.
+
+O usuário deve sentir que está sendo conduzido por uma jornada completa: ideia, estrutura, personagens, capítulos, escrita, revisão, sinopse, publicação, lançamento e vendas.

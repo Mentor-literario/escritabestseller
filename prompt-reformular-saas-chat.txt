@@ -1,0 +1,633 @@
+Reformule profundamente o SaaS Mentor Literário BestSeller.
+
+A estrutura atual ainda está longe da visão desejada. Não quero uma plataforma com muitos módulos visíveis, nem uma página separada para Títulos, nem uma página chamada Minha Jornada.
+
+A nova visão do produto é:
+
+O Mentor Literário BestSeller deve ser, antes de tudo, um mentor em formato de chat.
+
+A experiência principal do usuário deve acontecer na conversa com o Mentor BestSeller.
+
+O Mentor conversa com o usuário, entende o momento dele, conduz a criação do livro por conversa e, quando cada parte fica pronta, salva os resultados dentro de Meus Livros.
+
+O usuário não deve sentir que está preenchendo ferramentas. Ele deve sentir que está conversando com um mentor literário estratégico que conduz seu livro do zero até a publicação e vendas.
+
+NOVA ESTRUTURA DA SIDEBAR:
+
+A sidebar deve ser simples, curta e sofisticada.
+
+Itens principais:
+
+- Início
+- Meus Livros
+
+Recursos:
+
+- Biblioteca BestSeller
+- Planos
+- Configurações
+
+Não mostrar:
+- Minha Jornada
+- Títulos separado
+- Gerador de Ideias
+- Mapa do Livro
+- Personagens
+- Sinopse
+- Autoria
+- Amazon
+- Autonomia
+- módulos soltos
+
+Todas essas funções devem existir dentro do fluxo do Mentor e dentro de cada livro salvo.
+
+INÍCIO:
+
+A página Início deve ser sempre o chat do Mentor BestSeller.
+
+Título da página:
+"Mentor BestSeller"
+
+Subtítulo:
+"Seu agente literário digital para transformar uma ideia em livro estruturado, publicável e com estratégia de venda."
+
+A interface deve parecer um chat premium, tecnológico, elegante e envolvente.
+
+Na primeira visita, o Mentor deve iniciar com uma mensagem como:
+
+"Antes de te orientar de verdade, preciso entender o seu momento como autora. Vou te fazer algumas perguntas rápidas e, a partir disso, te ajudar a construir seu livro por partes."
+
+O chat deve ter sugestões de respostas rápidas:
+
+- Quero começar do zero
+- Já tenho uma ideia
+- Já comecei meu livro
+- Meu livro está pronto
+- Já publiquei, mas não vendo
+
+Depois disso, o Mentor deve conduzir o diagnóstico.
+
+DIAGNÓSTICO NO CHAT:
+
+O diagnóstico deve acontecer dentro do chat, não em uma página separada de formulário grande.
+
+O Mentor deve perguntar uma coisa por vez:
+
+1. Como posso te chamar?
+2. Você já escreve ou quer começar do zero?
+3. Qual gênero literário você escreve ou quer escrever?
+4. Em que fase está seu livro hoje?
+5. Qual é sua maior dificuldade agora?
+6. Você pretende publicar na Amazon?
+7. Seu objetivo agora é concluir o livro, publicar ou vender mais?
+
+Cada pergunta deve ter linguagem humana e explicação simples.
+
+Exemplo:
+"Como posso te chamar? Vou usar esse nome para personalizar nossas conversas e organizar seu projeto."
+
+Quando o diagnóstico terminar, o Mentor deve mostrar um card de resultado:
+
+"Seu diagnóstico literário está pronto"
+
+Conteúdo:
+- Nome
+- Fase atual
+- Gênero
+- Maior dificuldade
+- Objetivo principal
+- Próximo passo recomendado
+
+Botões:
+- Salvar diagnóstico
+- Continuar com o Mentor
+
+O diagnóstico deve ser salvo no localStorage.
+
+Depois do diagnóstico, o Mentor deve orientar a criação do primeiro livro.
+
+Ele deve perguntar:
+
+"Agora vamos criar seu primeiro projeto. Você já tem um título provisório para esse livro ou prefere deixar como 'Livro sem título' por enquanto?"
+
+Opções:
+- Tenho um título
+- Ainda não tenho título
+- Quero ajuda para criar títulos
+
+Se o usuário escolher "Tenho um título", salvar esse título no livro atual.
+
+Se escolher "Ainda não tenho título", criar o livro como "Livro sem título".
+
+Se escolher "Quero ajuda para criar títulos", o Mentor deve conduzir uma conversa para gerar sugestões de título e permitir salvar o título escolhido dentro do livro.
+
+MEUS LIVROS:
+
+A página Meus Livros é a central onde todos os projetos do usuário ficam salvos.
+
+A página deve mostrar uma lista de livros/projetos.
+
+Nesta fase simulada, pode existir um livro principal salvo em localStorage, mas a interface deve estar preparada para múltiplos livros no futuro.
+
+A página Meus Livros deve ter:
+
+- botão "Criar novo livro"
+- card para cada livro
+- título do livro
+- gênero
+- fase atual
+- última parte salva
+- porcentagem de construção do projeto
+- botão "Abrir livro"
+- botão "Continuar com o Mentor"
+
+Se ainda não houver livro salvo, mostrar:
+
+"Você ainda não criou nenhum livro. Comece conversando com o Mentor BestSeller. Ele vai te ajudar a criar seu primeiro projeto."
+
+Botão:
+"Começar pelo Mentor"
+
+DENTRO DE CADA LIVRO:
+
+Ao clicar em "Abrir livro", o usuário deve ver o dossiê editorial daquele livro.
+
+O título do livro deve aparecer no topo.
+
+Exemplo:
+"O Duque que Não Sabia Amar"
+
+Abaixo do título, mostrar:
+- gênero
+- fase atual
+- progresso do projeto
+- última atualização
+- botão "Continuar com o Mentor"
+- botão "Editar título"
+
+O dossiê do livro deve ser organizado em blocos ou abas:
+
+1. Visão geral
+2. Diagnóstico
+3. Ideia
+4. Premissa
+5. Títulos
+6. Sinopse
+7. Personagens
+8. Estrutura
+9. Capítulos
+10. Cenas
+11. Publicação
+12. Vendas
+
+IMPORTANTE:
+A área de Títulos não deve existir na sidebar.
+Ela deve existir apenas dentro de cada livro, como uma parte do dossiê editorial.
+
+Cada bloco deve puxar dados salvos durante a conversa com o Mentor.
+
+Se algum bloco ainda não tiver dados, mostrar:
+"Você ainda não construiu esta parte. Volte ao Mentor para continuar."
+
+Botão:
+"Continuar com o Mentor"
+
+O dossiê deve parecer um arquivo editorial premium do livro, não uma ficha técnica fria.
+
+TÍTULOS DENTRO DO LIVRO:
+
+Dentro do bloco Títulos de cada livro, mostrar:
+
+- título atual/favorito
+- títulos sugeridos
+- subtítulo, se houver
+- justificativa estratégica
+- tom do título
+- força comercial percebida
+
+Botões:
+- Editar título
+- Pedir novos títulos ao Mentor
+- Definir como título principal
+- Copiar
+
+Se não houver título salvo, mostrar:
+"Este livro ainda não tem um título definido. O Mentor pode ajudar você a criar opções mais fortes."
+
+Botão:
+"Criar títulos com o Mentor"
+
+CONDUÇÃO PELO CHAT:
+
+Depois do diagnóstico e da criação do livro, o Mentor deve conduzir o usuário por conversa.
+
+O usuário não escolhe módulos soltos. O Mentor conduz.
+
+O Mentor deve ajudar o usuário a construir e salvar dentro do livro:
+
+1. Diagnóstico inicial
+2. Ideia
+3. Premissa
+4. Títulos
+5. Sinopse
+6. Personagens
+7. Estrutura
+8. Capítulos
+9. Cenas
+10. Estratégia de publicação
+11. Estratégia de vendas
+
+Exemplo de fala do Mentor:
+
+"Agora que entendi sua fase, seu próximo passo é clarear a ideia do livro. Me conte sua ideia do jeito que ela está hoje. Não precisa estar bonita. Pode estar bagunçada."
+
+Quando o usuário responder, o Mentor deve gerar um resultado simulado estruturado.
+
+Exemplo para Ideia:
+- Ideia original
+- Potencial da ideia
+- O que ainda está fraco
+- Direção recomendada
+- Próxima pergunta
+
+Quando a parte estiver boa, mostrar botões:
+- Salvar no meu livro
+- Melhorar mais
+- Continuar para premissa
+
+PARTES QUE DEVEM SER SALVAS DENTRO DO LIVRO:
+
+1. Diagnóstico
+Salvar:
+- nome
+- fase atual
+- gênero
+- maior dificuldade
+- objetivo principal
+
+2. Ideia
+Salvar:
+- ideia original
+- diagnóstico da ideia
+- potencial
+- pontos fracos
+- direção recomendada
+
+3. Premissa
+Salvar:
+- premissa final
+- protagonista
+- desejo
+- conflito
+- obstáculo
+- promessa emocional
+
+4. Títulos
+Salvar:
+- título principal
+- títulos sugeridos
+- subtítulo, se houver
+- justificativa estratégica
+- tom do título
+- força comercial percebida
+
+5. Sinopse
+Salvar:
+- sinopse curta
+- sinopse para Amazon
+- frase de venda
+- tropes
+- CTA
+
+6. Personagens
+Salvar:
+- protagonista
+- par romântico ou personagem central
+- antagonista ou obstáculo
+- feridas emocionais
+- desejos
+- conflitos internos
+- arcos de transformação
+
+7. Estrutura
+Salvar:
+- começo
+- virada inicial
+- ponto médio
+- crise
+- clímax
+- desfecho
+
+8. Capítulos
+Salvar:
+- lista de capítulos
+- função de cada capítulo
+- gancho sugerido
+- objetivo emocional
+
+9. Cenas
+Salvar:
+- cenas principais
+- objetivo da cena
+- emoção dominante
+- conflito
+- sugestão de melhoria
+
+10. Estratégia de publicação
+Salvar:
+- título provisório ou principal
+- subtítulo, se houver
+- categoria editorial
+- checklist KDP
+- briefing de capa
+- palavras-chave educativas
+- página do livro
+
+11. Estratégia de vendas
+Salvar:
+- público leitor
+- ângulos de divulgação
+- plano de lançamento
+- ideias de posts
+- roteiros de Reels
+- copies
+- estratégia sem aparecer
+
+BIBLIOTECA BESTSELLER:
+
+Manter como recurso secundário.
+
+A Biblioteca deve conter templates úteis:
+
+- ficha de personagem
+- mapa de romance
+- estrutura de capítulo
+- checklist de revisão
+- checklist KDP
+- modelo de sinopse
+- calendário de lançamento
+- roteiro de Reels
+- legenda para Instagram
+- copy de anúncio
+- briefing de capa
+- plano de 30 dias de divulgação
+
+Cada template deve ter botão:
+"Usar com o Mentor"
+
+PLANOS:
+
+Manter página de planos, mas alinhar à nova lógica.
+
+Plano Essencial:
+"Para quem quer ser guiado da ideia à estrutura do livro."
+
+Plano Autora Pro:
+"Para quem quer construir livro, personagens, capítulos, títulos e sinopse com acompanhamento do Mentor."
+
+Plano BestSeller:
+"Para quem quer a jornada completa: livro, publicação, lançamento e vendas."
+
+CONFIGURAÇÕES:
+
+Permitir editar:
+- nome
+- gênero principal
+- objetivo atual
+- preferência de divulgação: aparecer ou não aparecer
+- tom de orientação desejado
+
+Salvar tudo em localStorage.
+
+FUNCIONAMENTO SIMULADO:
+
+Nesta etapa, não conectar IA real ainda.
+
+Mas o chat deve simular uma experiência inteligente.
+
+Use localStorage para salvar:
+
+- userProfile
+- diagnostic
+- books
+- currentBookId
+- chatHistory
+
+Cada livro deve ter estrutura própria:
+
+book:
+- id
+- title
+- genre
+- currentPhase
+- progress
+- lastSavedSection
+- diagnostic
+- idea
+- premise
+- titles
+- synopsis
+- characters
+- structure
+- chapters
+- scenes
+- publishingStrategy
+- salesStrategy
+- createdAt
+- updatedAt
+
+Criar funções utilitárias em lib/storage.ts, se ainda não existirem:
+
+- getUserProfile
+- saveUserProfile
+- getBooks
+- saveBooks
+- getCurrentBook
+- saveCurrentBook
+- updateBookSection
+- createBook
+- updateBookTitle
+- saveChatHistory
+- getChatHistory
+
+O chat deve reconhecer minimamente o estado salvo.
+
+Exemplo:
+Se não existe diagnóstico, começar pelo diagnóstico.
+Se diagnóstico existe, mas não existe livro, conduzir para criar o livro.
+Se livro existe, mas não existe ideia salva, conduzir para ideia.
+Se ideia existe, mas premissa não existe, conduzir para premissa.
+Se premissa existe, mas títulos não existem, oferecer criar títulos.
+Se títulos existem, conduzir para sinopse.
+Se sinopse existe, conduzir para personagens.
+E assim por diante.
+
+O objetivo é parecer uma conversa guiada real.
+
+NOVA IDENTIDADE VISUAL:
+
+Trocar a identidade visual atual por uma paleta vibrante, moderna, premium e tecnológica com roxo metálico e preto.
+
+A aparência deve ser mais impactante, sofisticada e digital.
+
+Use uma estética de:
+- IA premium
+- mentor digital sofisticado
+- tecnologia editorial
+- plataforma de alto valor
+- roxo metálico vibrante
+- preto elegante
+- brilho sutil
+- contraste forte
+
+PALETA PRINCIPAL:
+
+- Preto absoluto: #050509
+- Preto grafite: #0B0B12
+- Roxo metálico profundo: #5B21B6
+- Roxo vibrante: #7C3AED
+- Violeta elétrico: #A855F7
+- Lilás neon suave: #C084FC
+- Prata metálico: #C0C0C8
+- Branco frio: #F8FAFC
+- Cinza lavanda: #A1A1AA
+
+USO DAS CORES:
+
+Use preto absoluto e preto grafite como base da interface.
+
+Use roxo metálico profundo e roxo vibrante para:
+- botões principais
+- destaques
+- bordas ativas
+- ícones
+- elementos de progresso
+- cards importantes
+
+Use violeta elétrico e lilás neon suave com moderação para:
+- efeitos de brilho
+- hover
+- detalhes premium
+- badges
+- foco visual
+
+Use prata metálico e branco frio para:
+- textos
+- divisores
+- detalhes elegantes
+- cards secundários
+
+O design deve ter:
+- fundo escuro sofisticado
+- cards com bordas sutis em roxo
+- botões com gradiente roxo metálico
+- sombras/glows discretos
+- contraste alto
+- tipografia clara
+- sensação de tecnologia premium
+
+Evitar:
+- visual infantil
+- roxo muito doce
+- aparência de festa/neon exagerado
+- excesso de brilho
+- fundo branco dominante
+- cara de curso online genérico
+- aparência de painel administrativo comum
+
+O chat deve ser visualmente bonito, com:
+- balões elegantes
+- fundo escuro
+- cards de resultado dentro da conversa
+- botões de ação claros
+- detalhes em roxo metálico
+- área lateral ou superior com resumo do livro atual
+- sensação de estar conversando com uma IA premium
+
+TOM DE VOZ:
+
+O Mentor deve falar de forma:
+- humana
+- estratégica
+- clara
+- acolhedora
+- direta
+- elegante
+- sem clichês motivacionais
+- sem prometer resultado garantido
+
+Evitar:
+"Preencha as informações abaixo."
+"Gerar resultado."
+"Informe sua premissa."
+
+Preferir:
+"Me conte sua ideia do jeito que ela está hoje."
+"Não precisa estar perfeita. Eu vou te ajudar a organizar."
+"Agora vou transformar isso em uma base mais clara."
+"Quer salvar essa versão no seu livro?"
+"Seu próximo passo é..."
+
+PÁGINA INICIAL PÚBLICA:
+
+Atualizar a landing page para vender a nova proposta.
+
+Headline:
+"Tenha um mentor literário guiando seu livro da ideia à publicação."
+
+Subheadline:
+"O Mentor Literário BestSeller conversa com você, entende sua fase e conduz cada parte da criação do livro: ideia, premissa, títulos, personagens, estrutura, capítulos, sinopse, publicação e vendas."
+
+Deixar claro:
+- não é só um chat genérico
+- não é uma coleção de ferramentas
+- é um mentor literário digital que conduz a construção do livro
+- cada parte concluída fica salva dentro de Meus Livros
+- o usuário constrói o livro conversando
+- cada livro vira um dossiê editorial salvo
+
+Seções:
+1. Hero
+2. O problema
+3. Como o Mentor conduz você
+4. O que fica salvo dentro de cada livro
+5. Meus Livros: seu dossiê editorial
+6. Para quem é
+7. Planos
+8. CTA final
+
+Frase importante:
+"Você não precisa saber preencher uma ficha literária. O Mentor pergunta, interpreta, organiza e salva cada parte dentro do seu livro."
+
+REGRAS IMPORTANTES:
+
+- Não mostrar módulos separados na sidebar.
+- Não mostrar Minha Jornada na sidebar.
+- Não mostrar Títulos na sidebar.
+- Início deve ser sempre o chat do Mentor.
+- Meus Livros deve organizar todos os livros.
+- O título pertence ao livro, dentro de Meus Livros.
+- Dentro de cada livro ficam salvos: diagnóstico, ideia, premissa, títulos, sinopse, personagens, estrutura, capítulos, cenas, publicação e vendas.
+- Recursos deve manter Biblioteca, Planos e Configurações.
+- O sistema deve salvar nome e dados no localStorage.
+- O nome deve aparecer no chat e em Meus Livros.
+- O título principal deve aparecer como título do livro.
+- A experiência deve ser guiada, não técnica.
+- A interface deve usar roxo metálico vibrante e preto.
+- Rodar npm run dev e corrigir erros.
+
+RESULTADO ESPERADO:
+
+Ao final, o SaaS deve parecer um mentor literário digital premium, não um painel de ferramentas.
+
+O usuário deve entender que:
+
+1. Ele conversa com o Mentor.
+2. O Mentor conduz a construção do livro.
+3. Cada parte vira um material salvo dentro do livro.
+4. Meus Livros organiza tudo que foi criado.
+5. O título é uma parte do livro, não uma seção separada.
+6. Recursos ficam em segundo plano.
+7. O visual é escuro, vibrante, premium e tecnológico, com roxo metálico e preto.
+
+Execute a reformulação completa e garanta que o projeto continue funcionando.
