@@ -26,10 +26,9 @@ export async function POST(req: NextRequest) {
   const rawBody = await req.text();
   const body = JSON.parse(rawBody) as Record<string, unknown>;
 
-  // TODO: reativar após confirmar algoritmo de assinatura da Kiwify
-  // if (!validateSignature(req, rawBody)) {
-  //   return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
-  // }
+  if (!validateSignature(req, rawBody)) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
 
   const status: string = body.order_status as string;
   const email: string = (body.Customer as Record<string, string>)?.email;
