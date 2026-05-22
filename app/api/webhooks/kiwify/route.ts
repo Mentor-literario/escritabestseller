@@ -15,6 +15,9 @@ function validateToken(body: Record<string, unknown>): boolean {
 export async function POST(req: NextRequest) {
   const body = await req.json();
 
+  console.log("KIWIFY BODY:", JSON.stringify(body));
+  console.log("KIWIFY TOKEN ENV:", process.env.KIWIFY_WEBHOOK_TOKEN);
+
   if (!validateToken(body)) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
