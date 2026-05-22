@@ -1,24 +1,33 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
+import crypto from "crypto";
 
 const supabaseAdmin = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
   process.env.SUPABASE_SERVICE_ROLE_KEY!
 );
 
-function validateToken(body: Record<string, unknown>): boolean {
-  const expected = process.env.KIWIFY_WEBHOOK_TOKEN;
-  if (!expected) return false;
-  return body.token === expected;
+function validateSignature(req: NextRequest, rawBody: string): boolean {
+  const secret = process.env.KIWIFY_WEBHOOK_TOKEN;
+  if (!secret) return false;
+
+  const signature = req.nextUrl.searchParams.get("signature");
+  if (!signature) return false;
+
+  const computed = crypto
+    .createHmac("sha1", secret)
+    .update(rawBody)
+    .digest("hex");
+
+  return computed === signature;
 }
 
 export async function POST(req: NextRequest) {
-  const body = await req.json();
+  const rawBody = await req.text();
+  const body = JSON.parse(rawBody) as Record<string, unknown>;
 
-  console.log("KIWIFY BODY:", JSON.stringify(body));
-  console.log("KIWIFY TOKEN ENV:", process.env.KIWIFY_WEBHOOK_TOKEN);
-
-  if (!validateToken(body)) {
+  if (!validateSignature(req, rawBody)) {
+    console.error("Kiwify signature mismatch");
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
@@ -33,12 +42,10 @@ export async function POST(req: NextRequest) {
   }
 
   if (status === "paid") {
-    // Cria ou recupera o usuário
     const { data: existingUsers } = await supabaseAdmin.auth.admin.listUsers();
     const existing = existingUsers?.users?.find((u) => u.email === email);
 
     if (existing) {
-      // Usuária já existe — reativa o plano
       await supabaseAdmin.from("profiles").update({
         plan: planName,
         plan_status: "active",
@@ -46,7 +53,6 @@ export async function POST(req: NextRequest) {
         plan_expires_at: null,
       }).eq("id", existing.id);
     } else {
-      // Cria nova usuária
       const tempPassword = Math.random().toString(36).slice(-10) + "A1!";
       const { data: created, error } = await supabaseAdmin.auth.admin.createUser({
         email,
@@ -68,7 +74,6 @@ export async function POST(req: NextRequest) {
         plan_expires_at: null,
       }).eq("id", created.user.id);
 
-      // Envia e-mail de redefinição de senha (a usuária define a própria senha)
       await supabaseAdmin.auth.resetPasswordForEmail(email, {
         redirectTo: "https://app.autoralucrativa.shop/login",
       });
