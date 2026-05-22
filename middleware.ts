@@ -53,6 +53,20 @@ export async function middleware(request: NextRequest) {
     return NextResponse.redirect(url);
   }
 
+  if (user && isProtected) {
+    const { data: profile } = await supabase
+      .from("profiles")
+      .select("plan_status")
+      .eq("id", user.id)
+      .single();
+
+    if (profile && profile.plan_status !== "active") {
+      const url = request.nextUrl.clone();
+      url.pathname = "/planos";
+      return NextResponse.redirect(url);
+    }
+  }
+
   return supabaseResponse;
 }
 
