@@ -66,12 +66,8 @@ export async function POST(req: NextRequest) {
       }).eq("id", created.user.id);
 
       // Envia e-mail de redefinição de senha (a usuária define a própria senha)
-      await supabaseAdmin.auth.admin.generateLink({
-        type: "recovery",
-        email,
-        options: {
-          redirectTo: "https://app.autoralucrativa.shop/login",
-        },
+      await supabaseAdmin.auth.resetPasswordForEmail(email, {
+        redirectTo: "https://app.autoralucrativa.shop/login",
       });
     }
 
