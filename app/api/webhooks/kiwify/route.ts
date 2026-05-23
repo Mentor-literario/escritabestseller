@@ -53,7 +53,7 @@ export async function POST(req: NextRequest) {
       }).eq("id", existing.id);
 
       await supabaseAdmin.auth.resetPasswordForEmail(email, {
-        redirectTo: "https://app.autoralucrativa.shop/login",
+        redirectTo: "https://app.autoralucrativa.shop/reset-senha",
       });
     } else {
       const tempPassword = Math.random().toString(36).slice(-10) + "A1!";
@@ -78,7 +78,7 @@ export async function POST(req: NextRequest) {
       }).eq("id", created.user.id);
 
       await supabaseAdmin.auth.resetPasswordForEmail(email, {
-        redirectTo: "https://app.autoralucrativa.shop/login",
+        redirectTo: "https://app.autoralucrativa.shop/reset-senha",
       });
     }
 
