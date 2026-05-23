@@ -51,6 +51,10 @@ export async function POST(req: NextRequest) {
         kiwify_subscription_id: subscriptionId,
         plan_expires_at: null,
       }).eq("id", existing.id);
+
+      await supabaseAdmin.auth.resetPasswordForEmail(email, {
+        redirectTo: "https://app.autoralucrativa.shop/login",
+      });
     } else {
       const tempPassword = Math.random().toString(36).slice(-10) + "A1!";
       const { data: created, error } = await supabaseAdmin.auth.admin.createUser({
