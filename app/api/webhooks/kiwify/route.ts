@@ -1,11 +1,18 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import crypto from "crypto";
+import { sendWelcomeEmail, sendReactivationEmail } from "@/lib/email";
 
 const supabaseAdmin = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
   process.env.SUPABASE_SERVICE_ROLE_KEY!
 );
+
+function generatePassword(): string {
+  const chars = "abcdefghjkmnpqrstuvwxyz23456789";
+  const base = Array.from({ length: 8 }, () => chars[Math.floor(Math.random() * chars.length)]).join("");
+  return base + "A1!";
+}
 
 function validateSignature(req: NextRequest, rawBody: string): boolean {
   const secret = process.env.KIWIFY_WEBHOOK_TOKEN;
@@ -14,11 +21,7 @@ function validateSignature(req: NextRequest, rawBody: string): boolean {
   const signature = req.nextUrl.searchParams.get("signature");
   if (!signature) return false;
 
-  const computed = crypto
-    .createHmac("sha1", secret)
-    .update(rawBody)
-    .digest("hex");
-
+  const computed = crypto.createHmac("sha1", secret).update(rawBody).digest("hex");
   return computed === signature;
 }
 
@@ -33,8 +36,8 @@ export async function POST(req: NextRequest) {
   const status: string = body.order_status as string;
   const email: string = (body.Customer as Record<string, string>)?.email;
   const name: string = (body.Customer as Record<string, string>)?.full_name ?? "";
-  const subscriptionId: string = body.subscription_id as string ?? body.order_id as string;
-  const planName: string = body.product_title as string ?? "Pro";
+  const subscriptionId: string = (body.subscription_id as string) ?? (body.order_id as string);
+  const planName: string = (body.product_title as string) ?? "Pro";
 
   if (!email) {
     return NextResponse.json({ error: "No email" }, { status: 400 });
@@ -52,11 +55,9 @@ export async function POST(req: NextRequest) {
         plan_expires_at: null,
       }).eq("id", existing.id);
 
-      await supabaseAdmin.auth.resetPasswordForEmail(email, {
-        redirectTo: "https://app.autoralucrativa.shop/reset-senha",
-      });
+      await sendReactivationEmail(email, name || (existing.user_metadata?.name as string) || "");
     } else {
-      const tempPassword = Math.random().toString(36).slice(-10) + "A1!";
+      const tempPassword = generatePassword();
       const { data: created, error } = await supabaseAdmin.auth.admin.createUser({
         email,
         password: tempPassword,
@@ -77,9 +78,7 @@ export async function POST(req: NextRequest) {
         plan_expires_at: null,
       }).eq("id", created.user.id);
 
-      await supabaseAdmin.auth.resetPasswordForEmail(email, {
-        redirectTo: "https://app.autoralucrativa.shop/reset-senha",
-      });
+      await sendWelcomeEmail(email, name, tempPassword);
     }
 
     return NextResponse.json({ ok: true });
