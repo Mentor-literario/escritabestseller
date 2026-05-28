@@ -9,9 +9,12 @@ const supabaseAdmin = createClient(
 );
 
 function generatePassword(): string {
-  const chars = "abcdefghjkmnpqrstuvwxyz23456789";
-  const base = Array.from({ length: 8 }, () => chars[Math.floor(Math.random() * chars.length)]).join("");
-  return base + "A1!";
+  const lower = "abcdefghjkmnpqrstuvwxyz";
+  const upper = "ABCDEFGHJKMNPQRSTUVWXYZ";
+  const digits = "23456789";
+  const all = lower + upper + digits;
+  const base = Array.from({ length: 8 }, () => all[Math.floor(Math.random() * all.length)]).join("");
+  return base + upper[Math.floor(Math.random() * upper.length)] + digits[Math.floor(Math.random() * digits.length)];
 }
 
 function validateSignature(req: NextRequest, rawBody: string): boolean {
