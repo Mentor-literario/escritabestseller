@@ -43,7 +43,7 @@ export default function LoginPage() {
 
     const supabase = createClient();
     await supabase.auth.resetPasswordForEmail(forgotEmail.trim(), {
-      redirectTo: `${window.location.origin}/reset-senha`,
+      redirectTo: `${window.location.origin}/auth/callback?next=/reset-senha`,
     });
 
     setForgotSent(true);

@@ -15,18 +15,19 @@ function ResetSenhaForm() {
   const searchParams = useSearchParams();
 
   useEffect(() => {
-    const code = searchParams.get("code");
-    if (!code) {
+    const erro = searchParams.get("erro");
+    if (erro === "link-invalido") {
       setError("Link inválido ou expirado. Solicite um novo e-mail.");
       return;
     }
 
+    // Sessão já estabelecida pelo /auth/callback — só confirmar que há usuária logada
     const supabase = createClient();
-    supabase.auth.exchangeCodeForSession(code).then(({ error }) => {
-      if (error) {
-        setError("Link inválido ou expirado. Solicite um novo e-mail.");
-      } else {
+    supabase.auth.getUser().then(({ data }) => {
+      if (data.user) {
         setReady(true);
+      } else {
+        setError("Link inválido ou expirado. Solicite um novo e-mail.");
       }
     });
   }, [searchParams]);
