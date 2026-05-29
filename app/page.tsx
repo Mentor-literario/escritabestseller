@@ -1,58 +1,55 @@
 import Link from "next/link";
-import { BookHeart, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-ink-950 flex flex-col">
 
       {/* Nav */}
-      <nav className="px-6 py-5 flex items-center justify-between max-w-5xl mx-auto w-full">
-        <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-lg gradient-purple flex items-center justify-center shadow-glow-purple">
-            <BookHeart className="w-4 h-4 text-white" />
-          </div>
-          <div>
-            <p className="text-sm font-bold text-frost leading-tight">Escrita</p>
-            <p className="text-xs text-purple-400">BestSeller</p>
-          </div>
+      <nav className="px-8 py-6 flex items-center justify-between max-w-5xl mx-auto w-full">
+        <div className="flex flex-col">
+          <span className="text-base font-serif font-bold text-frost leading-tight tracking-wide">Escrita</span>
+          <span className="text-[10px] tracking-[0.18em] uppercase text-gold-500 font-sans font-medium">BestSeller</span>
         </div>
         <Link
           href="/login"
-          className="text-sm text-silver-400 hover:text-frost transition-colors"
+          className="text-xs tracking-[0.12em] uppercase text-silver-400 hover:text-frost transition-colors font-sans"
         >
           Entrar
         </Link>
       </nav>
 
       {/* Hero */}
-      <main className="flex-1 flex items-center justify-center px-6 py-20">
+      <main className="flex-1 flex items-center justify-center px-8 py-24">
         <div className="max-w-2xl mx-auto text-center">
 
-          <div className="inline-flex items-center gap-2 bg-purple-900/30 border border-purple-800/40 rounded-full px-4 py-1.5 mb-8">
-            <div className="w-1.5 h-1.5 rounded-full bg-purple-400" />
-            <span className="text-xs text-purple-300 font-medium">Organizador literário para escritoras independentes</span>
+          <div className="inline-flex items-center gap-2 mb-10">
+            <div className="h-px w-8 bg-gold-500/40" />
+            <span className="text-[11px] tracking-[0.2em] uppercase text-gold-500/80 font-sans">Organizador literário</span>
+            <div className="h-px w-8 bg-gold-500/40" />
           </div>
 
-          <h1 className="text-4xl md:text-5xl font-bold text-frost font-serif leading-tight mb-6">
-            Tudo do seu livro<br />organizado em um só lugar
+          <h1 className="text-5xl md:text-6xl font-serif font-bold text-frost leading-[1.1] mb-8 tracking-tight">
+            Do rascunho ao<br />
+            <span className="text-gradient-gold">livro publicado.</span>
           </h1>
 
-          <p className="text-silver-400 text-lg leading-relaxed mb-10 max-w-xl mx-auto">
-            O Escrita BestSeller é um organizador literário completo: personagens, estrutura, capítulos, sinopse, marketing e publicação na Amazon KDP — do primeiro rascunho ao lançamento.
+          <p className="text-silver-400 text-base leading-relaxed mb-12 max-w-lg mx-auto font-sans">
+            Personagens, estrutura, capítulos, sinopse, marketing e publicação na Amazon KDP — tudo organizado em um só lugar, guiado pelo Mentor.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
-              href="/login"
-              className="inline-flex items-center gap-2 gradient-purple text-white font-semibold px-8 py-3.5 rounded-lg hover:shadow-glow-purple transition-all text-sm"
+              href="/planos"
+              className="inline-flex items-center gap-2.5 gradient-gold text-ink-950 font-semibold px-8 py-3.5 rounded-lg hover:shadow-glow-gold transition-all text-sm font-sans tracking-wide"
             >
-              Entrar na plataforma <ArrowRight className="w-4 h-4" />
+              Começar agora <ArrowRight className="w-4 h-4" />
             </Link>
             <Link
-              href="/planos"
-              className="inline-flex items-center gap-2 border border-purple-700/50 text-purple-300 hover:bg-purple-700/20 font-medium px-8 py-3.5 rounded-lg transition-all text-sm"
+              href="/login"
+              className="inline-flex items-center gap-2 text-silver-400 hover:text-frost font-medium px-6 py-3.5 transition-colors text-sm font-sans"
             >
-              Ver planos
+              Já tenho acesso
             </Link>
           </div>
 
@@ -60,8 +57,13 @@ export default function Home() {
       </main>
 
       {/* Footer */}
-      <footer className="px-6 py-6 text-center">
-        <p className="text-xs text-silver-400/30">© 2025 Escrita BestSeller</p>
+      <footer className="px-8 py-6 border-t border-gold-500/8">
+        <div className="max-w-5xl mx-auto flex items-center justify-between">
+          <p className="text-[11px] text-silver-400/30 font-sans tracking-wide">© 2025 Escrita BestSeller</p>
+          <Link href="/planos" className="text-[11px] text-silver-400/30 hover:text-gold-500/60 transition-colors font-sans tracking-wide">
+            Ver plano
+          </Link>
+        </div>
       </footer>
 
     </div>
