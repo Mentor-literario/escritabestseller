@@ -19,15 +19,17 @@ export async function POST(req: NextRequest) {
       type: "recovery",
       email: email.trim(),
       options: {
-        redirectTo: "https://app.autoralucrativa.shop/auth/callback?next=/reset-senha",
+        redirectTo: "https://app.autoralucrativa.shop/reset-senha",
       },
     });
 
-    if (error || !data?.properties?.action_link) {
+    if (error || !data?.properties?.hashed_token) {
       return NextResponse.json({ ok: true });
     }
 
-    await sendPasswordResetEmail(email.trim(), data.properties.action_link);
+    const resetLink = `https://app.autoralucrativa.shop/auth/callback?token_hash=${data.properties.hashed_token}&type=recovery&next=/reset-senha`;
+
+    await sendPasswordResetEmail(email.trim(), resetLink);
 
     return NextResponse.json({ ok: true });
   } catch {
