@@ -41,9 +41,10 @@ export default function LoginPage() {
     if (!forgotEmail.trim()) return;
     setLoading(true);
 
-    const supabase = createClient();
-    await supabase.auth.resetPasswordForEmail(forgotEmail.trim(), {
-      redirectTo: `${window.location.origin}/auth/callback?next=/reset-senha`,
+    await fetch("/api/reset-senha", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email: forgotEmail.trim() }),
     });
 
     setForgotSent(true);

@@ -27,6 +27,24 @@ export async function sendWelcomeEmail(to: string, name: string, password: strin
   });
 }
 
+export async function sendPasswordResetEmail(to: string, resetLink: string) {
+  return resend.emails.send({
+    from: FROM,
+    to,
+    subject: "Redefinir senha — Escrita BestSeller",
+    html: `
+<div style="font-family:Georgia,serif;max-width:520px;margin:0 auto;padding:40px 24px;background:#fff">
+  <p style="font-size:22px;font-weight:bold;color:#1a1a2e;margin:0 0 8px">Escrita BestSeller</p>
+  <hr style="border:none;border-top:1px solid #e5e7eb;margin:16px 0 24px">
+  <p style="color:#374151;margin:0 0 16px">Você solicitou a redefinição da sua senha.</p>
+  <p style="color:#374151;margin:0 0 24px">Clique no botão abaixo para criar uma nova senha. O link é válido por 1 hora.</p>
+  <a href="${resetLink}" style="display:inline-block;background:#7c3aed;color:#fff;padding:14px 28px;border-radius:8px;text-decoration:none;font-weight:bold;font-size:15px">Redefinir minha senha →</a>
+  <p style="margin-top:24px;color:#6b7280;font-size:13px">Se você não solicitou isso, pode ignorar este e-mail.</p>
+  <p style="color:#9ca3af;font-size:12px">Escrita BestSeller — ${BASE_URL}</p>
+</div>`,
+  });
+}
+
 export async function sendReactivationEmail(to: string, name: string) {
   const firstName = name?.split(" ")[0] || "escritora";
   return resend.emails.send({
